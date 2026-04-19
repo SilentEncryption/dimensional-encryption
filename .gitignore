@@ -1,0 +1,45 @@
+# macOS
+.DS_Store
+
+# Tooling state
+.claude-flow/
+src/.claude-flow/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# C build artifacts
+src/c/de_bench
+src/c/*.o
+src/c/*.a
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+paper/*.fls
+paper/*.fdb_latexmk
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+
+# Archives (keep tex and pdf; exclude zips)
+paper/*.zip

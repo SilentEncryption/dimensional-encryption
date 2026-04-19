@@ -1,0 +1,608 @@
+{
+  "schema_version": "1.0",
+  "scheme": "Dimensional Encryption",
+  "scheme_version": "0.1",
+  "block_size_bits": 256,
+  "block_size_bytes": 32,
+  "header_size": 25,
+  "tag_size": 32,
+  "hash_function": "SHA-256 (via HMAC and HKDF)",
+  "vectors": {
+    "dimensions": [
+      {
+        "id": "dim-1",
+        "description": "Dimension 1 (SPN) single transform",
+        "dimension": 1,
+        "dimension_name": "SPN",
+        "key_hex": "c3b8f27eddb20d2d19ac46a03ccdb120a9fa28b152a87c50524c0677e63cfb21",
+        "input_hex": "38268fdd998d82773ec39ebc2f39717d7fcdc63ee21d43d01428f7ee17269b0c",
+        "output_hex": "5c668caf5b10ccf94bb8d3c52b0c950bafcbd7f66e9e50a56437ac6d41d6c703",
+        "roundtrip_match": true
+      },
+      {
+        "id": "dim-2",
+        "description": "Dimension 2 (Lattice) single transform",
+        "dimension": 2,
+        "dimension_name": "Lattice",
+        "key_hex": "c3b8f27eddb20d2d19ac46a03ccdb120a9fa28b152a87c50524c0677e63cfb21",
+        "input_hex": "38268fdd998d82773ec39ebc2f39717d7fcdc63ee21d43d01428f7ee17269b0c",
+        "output_hex": "a746133a06d168c42c2a5a8df23752f2195bf93f4185c59334accea53b099e7e",
+        "roundtrip_match": true
+      },
+      {
+        "id": "dim-3",
+        "description": "Dimension 3 (Permutation) single transform",
+        "dimension": 3,
+        "dimension_name": "Permutation",
+        "key_hex": "c3b8f27eddb20d2d19ac46a03ccdb120a9fa28b152a87c50524c0677e63cfb21",
+        "input_hex": "38268fdd998d82773ec39ebc2f39717d7fcdc63ee21d43d01428f7ee17269b0c",
+        "output_hex": "dd5c30f44b0dc851a5bee1e003a62fdeff14cf39397ce9a35d6d268b15f96cab",
+        "roundtrip_match": true
+      },
+      {
+        "id": "dim-4",
+        "description": "Dimension 4 (Hash-Feistel) single transform",
+        "dimension": 4,
+        "dimension_name": "Hash-Feistel",
+        "key_hex": "c3b8f27eddb20d2d19ac46a03ccdb120a9fa28b152a87c50524c0677e63cfb21",
+        "input_hex": "38268fdd998d82773ec39ebc2f39717d7fcdc63ee21d43d01428f7ee17269b0c",
+        "output_hex": "0af8402786cd50704469b01bade778230fac96f2925dd2a6c7d23f510e84b85d",
+        "roundtrip_match": true
+      },
+      {
+        "id": "dim-5",
+        "description": "Dimension 5 (EC-Analog) single transform",
+        "dimension": 5,
+        "dimension_name": "EC-Analog",
+        "key_hex": "c3b8f27eddb20d2d19ac46a03ccdb120a9fa28b152a87c50524c0677e63cfb21",
+        "input_hex": "38268fdd998d82773ec39ebc2f39717d7fcdc63ee21d43d01428f7ee17269b0c",
+        "output_hex": "4336ddb564218155fd86358310c0b35f588aa6ee28173f76c89047c798820d25",
+        "roundtrip_match": true
+      },
+      {
+        "id": "dim-6",
+        "description": "Dimension 6 (Multivariate) single transform",
+        "dimension": 6,
+        "dimension_name": "Multivariate",
+        "key_hex": "c3b8f27eddb20d2d19ac46a03ccdb120a9fa28b152a87c50524c0677e63cfb21",
+        "input_hex": "38268fdd998d82773ec39ebc2f39717d7fcdc63ee21d43d01428f7ee17269b0c",
+        "output_hex": "a3ddffcd4dd0fe8c807622b79efa8c52466ac52bf6f99b7a0e4460765f34490d",
+        "roundtrip_match": true
+      }
+    ],
+    "block_cipher": [
+      {
+        "id": "block-k2",
+        "description": "Block cipher with k=2 layers",
+        "master_key_hex": "a2c2a5395feb0b5c7dff8121d96212b083ff22444bf2fbb7a6692ffe6d4b797e",
+        "nonce_hex": "be8f2170a27ec422c6c1542afc6b02fa",
+        "num_layers": 2,
+        "layers": [
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "5cc1b5fd6872d65ba05717a3d006ad954d39dcac2978c82fc9f66517710c60c7"
+          },
+          {
+            "dimension": 2,
+            "name": "Lattice",
+            "key_hex": "ee2a6736dc4db66483e2432f79142f0311eb6fc65fc9b3da33909dab89a996f8"
+          }
+        ],
+        "input_hex": "4970ec691c999ca6890d1da290d3cd1801cb40c3aa8d56806df3cdb49d4b3183",
+        "output_hex": "977bb41846520295537f5b2153a7596be727fe6bc7a31b7cf4bf0da9debde8d2",
+        "roundtrip_match": true
+      },
+      {
+        "id": "block-k4",
+        "description": "Block cipher with k=4 layers",
+        "master_key_hex": "a2c2a5395feb0b5c7dff8121d96212b083ff22444bf2fbb7a6692ffe6d4b797e",
+        "nonce_hex": "be8f2170a27ec422c6c1542afc6b02fa",
+        "num_layers": 4,
+        "layers": [
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "5cc1b5fd6872d65ba05717a3d006ad954d39dcac2978c82fc9f66517710c60c7"
+          },
+          {
+            "dimension": 2,
+            "name": "Lattice",
+            "key_hex": "ee2a6736dc4db66483e2432f79142f0311eb6fc65fc9b3da33909dab89a996f8"
+          },
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "7b5ea23876bf7d2f823070fd3a6e537f6afc841ad868c9e4c9ac11314fbd8068"
+          },
+          {
+            "dimension": 6,
+            "name": "Multivariate",
+            "key_hex": "97b9d2c0c07426178b10b2953077881668a30744d6b54177f28a773b62986ea4"
+          }
+        ],
+        "input_hex": "4970ec691c999ca6890d1da290d3cd1801cb40c3aa8d56806df3cdb49d4b3183",
+        "output_hex": "5422c5eef142a4f766c39215545218dc9a46d4607e68e654fbc926e7d87f06b0",
+        "roundtrip_match": true
+      },
+      {
+        "id": "block-k6",
+        "description": "Block cipher with k=6 layers",
+        "master_key_hex": "a2c2a5395feb0b5c7dff8121d96212b083ff22444bf2fbb7a6692ffe6d4b797e",
+        "nonce_hex": "be8f2170a27ec422c6c1542afc6b02fa",
+        "num_layers": 6,
+        "layers": [
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "5cc1b5fd6872d65ba05717a3d006ad954d39dcac2978c82fc9f66517710c60c7"
+          },
+          {
+            "dimension": 2,
+            "name": "Lattice",
+            "key_hex": "ee2a6736dc4db66483e2432f79142f0311eb6fc65fc9b3da33909dab89a996f8"
+          },
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "7b5ea23876bf7d2f823070fd3a6e537f6afc841ad868c9e4c9ac11314fbd8068"
+          },
+          {
+            "dimension": 6,
+            "name": "Multivariate",
+            "key_hex": "97b9d2c0c07426178b10b2953077881668a30744d6b54177f28a773b62986ea4"
+          },
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "d55a5be2a98ce4d9095502e22a413061632574439e77076a73523a8a915b0ebe"
+          },
+          {
+            "dimension": 2,
+            "name": "Lattice",
+            "key_hex": "70312be57196f4384cf71195042d75099526574437c75f6faa96dbbb5f9c41ce"
+          }
+        ],
+        "input_hex": "4970ec691c999ca6890d1da290d3cd1801cb40c3aa8d56806df3cdb49d4b3183",
+        "output_hex": "0acdcd4fdc06c370b101ff4327a7f6142a8b107c0a3500ba5b36ed2dd9037428",
+        "roundtrip_match": true
+      },
+      {
+        "id": "block-k8",
+        "description": "Block cipher with k=8 layers",
+        "master_key_hex": "a2c2a5395feb0b5c7dff8121d96212b083ff22444bf2fbb7a6692ffe6d4b797e",
+        "nonce_hex": "be8f2170a27ec422c6c1542afc6b02fa",
+        "num_layers": 8,
+        "layers": [
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "5cc1b5fd6872d65ba05717a3d006ad954d39dcac2978c82fc9f66517710c60c7"
+          },
+          {
+            "dimension": 2,
+            "name": "Lattice",
+            "key_hex": "ee2a6736dc4db66483e2432f79142f0311eb6fc65fc9b3da33909dab89a996f8"
+          },
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "7b5ea23876bf7d2f823070fd3a6e537f6afc841ad868c9e4c9ac11314fbd8068"
+          },
+          {
+            "dimension": 6,
+            "name": "Multivariate",
+            "key_hex": "97b9d2c0c07426178b10b2953077881668a30744d6b54177f28a773b62986ea4"
+          },
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "d55a5be2a98ce4d9095502e22a413061632574439e77076a73523a8a915b0ebe"
+          },
+          {
+            "dimension": 2,
+            "name": "Lattice",
+            "key_hex": "70312be57196f4384cf71195042d75099526574437c75f6faa96dbbb5f9c41ce"
+          },
+          {
+            "dimension": 4,
+            "name": "Hash-Feistel",
+            "key_hex": "9838025f7d0b4295f3b458f7736a32e698c5375a105c373e841486c08d2a904a"
+          },
+          {
+            "dimension": 5,
+            "name": "EC-Analog",
+            "key_hex": "96614aaeafa3c5d281b3ad7a1da1061becf73596ef47731c8f21a8ec8d5b931e"
+          }
+        ],
+        "input_hex": "4970ec691c999ca6890d1da290d3cd1801cb40c3aa8d56806df3cdb49d4b3183",
+        "output_hex": "8f1fd5d1cd858b2034ffe31ffd05a810e4dfcab691a8d72355a4a6c93fb1b1b2",
+        "roundtrip_match": true
+      }
+    ],
+    "full_scheme": [
+      {
+        "id": "scheme-empty",
+        "description": "Full scheme, message: empty (0 bytes)",
+        "master_key_hex": "8bd412af469340f0ebd69c04be91ddb2491ab7a62b72f573d6acb841dffde86b",
+        "nonce_hex": "60e0cd2feaf979a456bb72e8ebea29a7",
+        "num_layers": 8,
+        "plaintext_hex": "",
+        "plaintext_utf8": "",
+        "ciphertext_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a735c8278a950924be13a8a57d567a1eedbd7517ff94aad36714e9f374ee2c79af",
+        "ciphertext_length": 57,
+        "header_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a7",
+        "body_hex": "",
+        "tag_hex": "35c8278a950924be13a8a57d567a1eedbd7517ff94aad36714e9f374ee2c79af",
+        "roundtrip_match": true
+      },
+      {
+        "id": "scheme-one-byte",
+        "description": "Full scheme, message: one-byte (1 bytes)",
+        "master_key_hex": "8bd412af469340f0ebd69c04be91ddb2491ab7a62b72f573d6acb841dffde86b",
+        "nonce_hex": "60e0cd2feaf979a456bb72e8ebea29a7",
+        "num_layers": 8,
+        "plaintext_hex": "42",
+        "plaintext_utf8": "B",
+        "ciphertext_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a71cc92fab847e5f3fc946a04f7ab61c2974a62d70b9af21821eb240fd637a89e484",
+        "ciphertext_length": 58,
+        "header_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a7",
+        "body_hex": "1c",
+        "tag_hex": "c92fab847e5f3fc946a04f7ab61c2974a62d70b9af21821eb240fd637a89e484",
+        "roundtrip_match": true
+      },
+      {
+        "id": "scheme-short",
+        "description": "Full scheme, message: short (30 bytes)",
+        "master_key_hex": "8bd412af469340f0ebd69c04be91ddb2491ab7a62b72f573d6acb841dffde86b",
+        "nonce_hex": "60e0cd2feaf979a456bb72e8ebea29a7",
+        "num_layers": 8,
+        "plaintext_hex": "48656c6c6f2c2044696d656e73696f6e616c20456e6372797074696f6e21",
+        "plaintext_utf8": "Hello, Dimensional Encryption!",
+        "ciphertext_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a716993262b2880e39af20f6927a85631fb5c16d1175faef022c42649ee1a4cab8a0cba7576aff268655f61afd80f92c8c6ad8f29959b0a133cbaf8298033f",
+        "ciphertext_length": 87,
+        "header_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a7",
+        "body_hex": "16993262b2880e39af20f6927a85631fb5c16d1175faef022c42649ee1a4",
+        "tag_hex": "cab8a0cba7576aff268655f61afd80f92c8c6ad8f29959b0a133cbaf8298033f",
+        "roundtrip_match": true
+      },
+      {
+        "id": "scheme-exact-block",
+        "description": "Full scheme, message: exact-block (32 bytes)",
+        "master_key_hex": "8bd412af469340f0ebd69c04be91ddb2491ab7a62b72f573d6acb841dffde86b",
+        "nonce_hex": "60e0cd2feaf979a456bb72e8ebea29a7",
+        "num_layers": 8,
+        "plaintext_hex": "4141414141414141414141414141414141414141414141414141414141414141",
+        "plaintext_utf8": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "ciphertext_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a71fbd1f4f9ce56f3c870cd2bd48ad4d3095ec0c155ad8dc3a1d774cb0cec4925aae13bfe2c1efa00a251c92d94f082ff66610666e40c43d8af12855d8c5cb76cc",
+        "ciphertext_length": 89,
+        "header_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a7",
+        "body_hex": "1fbd1f4f9ce56f3c870cd2bd48ad4d3095ec0c155ad8dc3a1d774cb0cec4925a",
+        "tag_hex": "ae13bfe2c1efa00a251c92d94f082ff66610666e40c43d8af12855d8c5cb76cc",
+        "roundtrip_match": true
+      },
+      {
+        "id": "scheme-two-blocks",
+        "description": "Full scheme, message: two-blocks (64 bytes)",
+        "master_key_hex": "8bd412af469340f0ebd69c04be91ddb2491ab7a62b72f573d6acb841dffde86b",
+        "nonce_hex": "60e0cd2feaf979a456bb72e8ebea29a7",
+        "num_layers": 8,
+        "plaintext_hex": "42424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242424242",
+        "plaintext_utf8": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+        "ciphertext_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a71cbe1c4c9fe66c3f840fd1be4bae4e3396ef0f1659dbdf391e744fb3cdc79159727009a180a5b0b25de5b097caf195a217753e98b63a041dc3c4e96216ef0c5caaccf40df5cfe37bb44e671e7deca053f122275d5ec9943b4979741e63f9ee54",
+        "ciphertext_length": 121,
+        "header_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a7",
+        "body_hex": "1cbe1c4c9fe66c3f840fd1be4bae4e3396ef0f1659dbdf391e744fb3cdc79159727009a180a5b0b25de5b097caf195a217753e98b63a041dc3c4e96216ef0c5c",
+        "tag_hex": "aaccf40df5cfe37bb44e671e7deca053f122275d5ec9943b4979741e63f9ee54",
+        "roundtrip_match": true
+      },
+      {
+        "id": "scheme-partial",
+        "description": "Full scheme, message: partial (50 bytes)",
+        "master_key_hex": "8bd412af469340f0ebd69c04be91ddb2491ab7a62b72f573d6acb841dffde86b",
+        "nonce_hex": "60e0cd2feaf979a456bb72e8ebea29a7",
+        "num_layers": 8,
+        "plaintext_hex": "4343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343434343",
+        "plaintext_utf8": "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+        "ciphertext_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a71dbf1d4d9ee76d3e850ed0bf4aaf4f3297ee0e1758dade381f754eb2ccc69058737108a081a4b1b35ce4b196cbf094a316748fa7e6df64f91564d697ba2f41a8c7b37592cab0ff4e9f42cfa8491d9c0668da",
+        "ciphertext_length": 107,
+        "header_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a7",
+        "body_hex": "1dbf1d4d9ee76d3e850ed0bf4aaf4f3297ee0e1758dade381f754eb2ccc69058737108a081a4b1b35ce4b196cbf094a31674",
+        "tag_hex": "8fa7e6df64f91564d697ba2f41a8c7b37592cab0ff4e9f42cfa8491d9c0668da",
+        "roundtrip_match": true
+      },
+      {
+        "id": "scheme-longer",
+        "description": "Full scheme, message: longer (225 bytes)",
+        "master_key_hex": "8bd412af469340f0ebd69c04be91ddb2491ab7a62b72f573d6acb841dffde86b",
+        "nonce_hex": "60e0cd2feaf979a456bb72e8ebea29a7",
+        "num_layers": 8,
+        "plaintext_hex": "54686520717569636b2062726f776e20666f78206a756d7073206f76657220746865206c617a7920646f672e2054686520717569636b2062726f776e20666f78206a756d7073206f76657220746865206c617a7920646f672e2054686520717569636b2062726f776e20666f78206a756d7073206f76657220746865206c617a7920646f672e2054686520717569636b2062726f776e20666f78206a756d7073206f76657220746865206c617a7920646f672e2054686520717569636b2062726f776e20666f78206a756d7073206f76657220746865206c617a7920646f672e20",
+        "plaintext_utf8": "The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the lazy dog. ",
+        "ciphertext_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a70a943b2eacd1471ead6df18e669b6251b2c2357471ecf00b2f166287eaf7f36f58576b8fa39d8bd07bc895fba8e7bf85754609b39713663df3e9dc4e74cb2166becbaf031ea8882681877c81239faf67c03e5f9219b840eb86733f22efadf4d1cc673ad9ddb26a6a2251729e4fb8b202b0cf7f76b9a95bb602685a687bf8d3841ab285bd7ec9d90a2aaa1151b118bb3e2798ca984784a9b9b4dcc260c85386d67a78eabffdcfb2c5564e2af5df6fbc87cc769cce0e8138e5e86d9f0bfb1ffef1d00c04d10c58d221e9acffc259571b1cf39e737534398ff2073c9a38594245e9d292d7dac89fc1b81dbc014941db67e947ae8dc56daab9957c648c5427fd69f930",
+        "ciphertext_length": 282,
+        "header_hex": "44454e43010820000060e0cd2feaf979a456bb72e8ebea29a7",
+        "body_hex": "0a943b2eacd1471ead6df18e669b6251b2c2357471ecf00b2f166287eaf7f36f58576b8fa39d8bd07bc895fba8e7bf85754609b39713663df3e9dc4e74cb2166becbaf031ea8882681877c81239faf67c03e5f9219b840eb86733f22efadf4d1cc673ad9ddb26a6a2251729e4fb8b202b0cf7f76b9a95bb602685a687bf8d3841ab285bd7ec9d90a2aaa1151b118bb3e2798ca984784a9b9b4dcc260c85386d67a78eabffdcfb2c5564e2af5df6fbc87cc769cce0e8138e5e86d9f0bfb1ffef1d00c04d10c58d221e9acffc259571b1cf39e737534398ff2073c9a38594245e9d2",
+        "tag_hex": "92d7dac89fc1b81dbc014941db67e947ae8dc56daab9957c648c5427fd69f930",
+        "roundtrip_match": true
+      }
+    ],
+    "key_derivation": [
+      {
+        "id": "kdf-0-k6",
+        "description": "Key derivation #0, k=6",
+        "master_key_hex": "6f02f3dd00e1ea706f8646c9c24405364a7c065ad4761d6a74b0f3a0e2bce25d",
+        "nonce_hex": "c5bf59dd39f8db3e447b6c2fcdcedf94",
+        "num_layers": 6,
+        "derived_layers": [
+          {
+            "dimension": 4,
+            "key_hex": "de536775146c0d3d292a81ece0a003d0b7452697bd8d0b9a71e511b0fd8926e2"
+          },
+          {
+            "dimension": 1,
+            "key_hex": "280dd83f6a27392c48d9901736cbd03be6637e91663913db1d5b5575e507cffe"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "670eeec3dbebcb529588cf046c156ab27e3dfc5850aa097bb4c2445c68bfd352"
+          },
+          {
+            "dimension": 6,
+            "key_hex": "6332b314240db4345baa3ace54f94ca44b1540c7c9f1710b6dc34c57051b7527"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "1deb17768ed79eaecf67bee53d8212724a47abed53b689bc27745a03d04285eb"
+          },
+          {
+            "dimension": 5,
+            "key_hex": "90cf6f78350dd0134f9a4fb79658857ec21d4ab4cf81ad2ac0eae52c1158fb6a"
+          }
+        ]
+      },
+      {
+        "id": "kdf-0-k8",
+        "description": "Key derivation #0, k=8",
+        "master_key_hex": "6f02f3dd00e1ea706f8646c9c24405364a7c065ad4761d6a74b0f3a0e2bce25d",
+        "nonce_hex": "c5bf59dd39f8db3e447b6c2fcdcedf94",
+        "num_layers": 8,
+        "derived_layers": [
+          {
+            "dimension": 4,
+            "key_hex": "de536775146c0d3d292a81ece0a003d0b7452697bd8d0b9a71e511b0fd8926e2"
+          },
+          {
+            "dimension": 1,
+            "key_hex": "280dd83f6a27392c48d9901736cbd03be6637e91663913db1d5b5575e507cffe"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "670eeec3dbebcb529588cf046c156ab27e3dfc5850aa097bb4c2445c68bfd352"
+          },
+          {
+            "dimension": 6,
+            "key_hex": "6332b314240db4345baa3ace54f94ca44b1540c7c9f1710b6dc34c57051b7527"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "1deb17768ed79eaecf67bee53d8212724a47abed53b689bc27745a03d04285eb"
+          },
+          {
+            "dimension": 5,
+            "key_hex": "90cf6f78350dd0134f9a4fb79658857ec21d4ab4cf81ad2ac0eae52c1158fb6a"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "716359f9310768bd844786e4ca340407559638bf933571345889df02e6d2e7a3"
+          },
+          {
+            "dimension": 1,
+            "key_hex": "ac0b1bea6577c4b8cfcca76749d0f27bdd510cbccb66900712c0ebf855c00ba8"
+          }
+        ]
+      },
+      {
+        "id": "kdf-1-k6",
+        "description": "Key derivation #1, k=6",
+        "master_key_hex": "416aff95ff3b128d923964c5b341737ce22076e9a462c82595a6d71ef9e47bc7",
+        "nonce_hex": "4dd5cddffedb3e6beffe6b92b6c9a240",
+        "num_layers": 6,
+        "derived_layers": [
+          {
+            "dimension": 4,
+            "key_hex": "40db5d7fd5ac5e3c00f3c03940c4296644dd63a63d03b474d98b9fd96ccdffcd"
+          },
+          {
+            "dimension": 5,
+            "key_hex": "ecbdf0dcfd9f078f13a0adc691a48597c2733ee3eede8599eeb3b4ff26bb2f1d"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "bbed9f66ac9e9a80bb9bcb56051f166d9430039cff4988df05b090bd1104f4b2"
+          },
+          {
+            "dimension": 5,
+            "key_hex": "09199f0f042f9f0c4345c9a1cea9c10826373cad2ad3d744264184568283a1fc"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "3dc21e5eade2f75991900ab8c1393c725047648e7abb87295625d1863dca1183"
+          },
+          {
+            "dimension": 6,
+            "key_hex": "34278e098fac3943ca80520585373eafdd9717482b91b88f28af84e06f73f434"
+          }
+        ]
+      },
+      {
+        "id": "kdf-1-k8",
+        "description": "Key derivation #1, k=8",
+        "master_key_hex": "416aff95ff3b128d923964c5b341737ce22076e9a462c82595a6d71ef9e47bc7",
+        "nonce_hex": "4dd5cddffedb3e6beffe6b92b6c9a240",
+        "num_layers": 8,
+        "derived_layers": [
+          {
+            "dimension": 4,
+            "key_hex": "40db5d7fd5ac5e3c00f3c03940c4296644dd63a63d03b474d98b9fd96ccdffcd"
+          },
+          {
+            "dimension": 5,
+            "key_hex": "ecbdf0dcfd9f078f13a0adc691a48597c2733ee3eede8599eeb3b4ff26bb2f1d"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "bbed9f66ac9e9a80bb9bcb56051f166d9430039cff4988df05b090bd1104f4b2"
+          },
+          {
+            "dimension": 5,
+            "key_hex": "09199f0f042f9f0c4345c9a1cea9c10826373cad2ad3d744264184568283a1fc"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "3dc21e5eade2f75991900ab8c1393c725047648e7abb87295625d1863dca1183"
+          },
+          {
+            "dimension": 6,
+            "key_hex": "34278e098fac3943ca80520585373eafdd9717482b91b88f28af84e06f73f434"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "6a196fa59d183f07fbfdad1f4e31f437690b1aa2dd9de8d7fe9c51c9f6379f48"
+          },
+          {
+            "dimension": 6,
+            "key_hex": "a30c37f99ba04b1938dd826e7c299870c6fcc8e3907f6bb9720e445e3867c932"
+          }
+        ]
+      },
+      {
+        "id": "kdf-2-k6",
+        "description": "Key derivation #2, k=6",
+        "master_key_hex": "e20f2e1b57ee4f6e86fb7f8bf09e703c5f7a40f00528cf9c419045309abf705f",
+        "nonce_hex": "b216b6d2008031d2426ee2f066256a4e",
+        "num_layers": 6,
+        "derived_layers": [
+          {
+            "dimension": 4,
+            "key_hex": "30fcae3841fe8b2ba548e2fb97fb192c95356706ea755268a951065ba979c783"
+          },
+          {
+            "dimension": 1,
+            "key_hex": "de8e7af85908b59dc9e9c13198df8879944754b759a1c67f0cbbe35afa8e16a2"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "d881a16821c152476d7dc1cd2010decb49d9d4e8a5446f86dbb0f5d6c56378eb"
+          },
+          {
+            "dimension": 2,
+            "key_hex": "28d42dc39d7e5466bc10092b03a83f2f520348972c9c5713c84f61cf56903478"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "c97dc84935835314b60b50da043cc223bb7e2bd690b2c3044737413065d57c27"
+          },
+          {
+            "dimension": 6,
+            "key_hex": "fdcb7ce1d6d3f04ecb4b3eea6af6c58528c95f8bccfec9c3442c01ad32438eaa"
+          }
+        ]
+      },
+      {
+        "id": "kdf-2-k8",
+        "description": "Key derivation #2, k=8",
+        "master_key_hex": "e20f2e1b57ee4f6e86fb7f8bf09e703c5f7a40f00528cf9c419045309abf705f",
+        "nonce_hex": "b216b6d2008031d2426ee2f066256a4e",
+        "num_layers": 8,
+        "derived_layers": [
+          {
+            "dimension": 4,
+            "key_hex": "30fcae3841fe8b2ba548e2fb97fb192c95356706ea755268a951065ba979c783"
+          },
+          {
+            "dimension": 1,
+            "key_hex": "de8e7af85908b59dc9e9c13198df8879944754b759a1c67f0cbbe35afa8e16a2"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "d881a16821c152476d7dc1cd2010decb49d9d4e8a5446f86dbb0f5d6c56378eb"
+          },
+          {
+            "dimension": 2,
+            "key_hex": "28d42dc39d7e5466bc10092b03a83f2f520348972c9c5713c84f61cf56903478"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "c97dc84935835314b60b50da043cc223bb7e2bd690b2c3044737413065d57c27"
+          },
+          {
+            "dimension": 6,
+            "key_hex": "fdcb7ce1d6d3f04ecb4b3eea6af6c58528c95f8bccfec9c3442c01ad32438eaa"
+          },
+          {
+            "dimension": 4,
+            "key_hex": "712c193d829cb450843e7c4fcace839426be6ce3885a6911f0863f799f6e528b"
+          },
+          {
+            "dimension": 1,
+            "key_hex": "8ab70922d6bac5cd92f677ca312f80c71092c62221f3068c360d3458a2cae1a0"
+          }
+        ]
+      }
+    ],
+    "authentication": [
+      {
+        "id": "auth-valid",
+        "description": "Valid ciphertext, should decrypt successfully",
+        "master_key_hex": "35d671f30eef4865125fc5c6c02e091271d0120852a4ccfa89532c757f4f5484",
+        "ciphertext_hex": "44454e43010820000018ab5d49f259ba5a45a85ff023ed1664c24b34b55e64aabd4ff1b048fe6f435471fee4dae4acb03b16c1ccc1e3984c30e541703434365ee9f653fe33370b284e9a5db26b038268f91266088b09ad474ecce7be4d2396599111c83b",
+        "should_succeed": true,
+        "expected_plaintext_hex": "41757468656e7469636174696f6e2074657374206d657373616765202d20646f206e6f74206d6f64696679"
+      },
+      {
+        "id": "auth-tampered-header",
+        "description": "Header tampered (1 bit flipped in magic bytes)",
+        "master_key_hex": "35d671f30eef4865125fc5c6c02e091271d0120852a4ccfa89532c757f4f5484",
+        "ciphertext_hex": "44454e42010820000018ab5d49f259ba5a45a85ff023ed1664c24b34b55e64aabd4ff1b048fe6f435471fee4dae4acb03b16c1ccc1e3984c30e541703434365ee9f653fe33370b284e9a5db26b038268f91266088b09ad474ecce7be4d2396599111c83b",
+        "should_succeed": false,
+        "tamper_position": 3,
+        "tamper_description": "Flipped 1 bit in DENC magic"
+      },
+      {
+        "id": "auth-tampered-body",
+        "description": "Ciphertext body tampered (byte 30 flipped)",
+        "master_key_hex": "35d671f30eef4865125fc5c6c02e091271d0120852a4ccfa89532c757f4f5484",
+        "ciphertext_hex": "44454e43010820000018ab5d49f259ba5a45a85ff023ed1664c24b34b55e9baabd4ff1b048fe6f435471fee4dae4acb03b16c1ccc1e3984c30e541703434365ee9f653fe33370b284e9a5db26b038268f91266088b09ad474ecce7be4d2396599111c83b",
+        "should_succeed": false,
+        "tamper_position": 30,
+        "tamper_description": "All bits flipped at position 30"
+      },
+      {
+        "id": "auth-tampered-tag",
+        "description": "HMAC tag tampered (last bit flipped)",
+        "master_key_hex": "35d671f30eef4865125fc5c6c02e091271d0120852a4ccfa89532c757f4f5484",
+        "ciphertext_hex": "44454e43010820000018ab5d49f259ba5a45a85ff023ed1664c24b34b55e64aabd4ff1b048fe6f435471fee4dae4acb03b16c1ccc1e3984c30e541703434365ee9f653fe33370b284e9a5db26b038268f91266088b09ad474ecce7be4d2396599111c83a",
+        "should_succeed": false,
+        "tamper_position": 99,
+        "tamper_description": "1 bit flipped in HMAC tag"
+      },
+      {
+        "id": "auth-wrong-key",
+        "description": "Valid ciphertext, wrong decryption key",
+        "master_key_hex": "a131fffc673fc45117e76ed8ab2fe5a60b71fcea21c9bb3ad38d685c0359871b",
+        "ciphertext_hex": "44454e43010820000018ab5d49f259ba5a45a85ff023ed1664c24b34b55e64aabd4ff1b048fe6f435471fee4dae4acb03b16c1ccc1e3984c30e541703434365ee9f653fe33370b284e9a5db26b038268f91266088b09ad474ecce7be4d2396599111c83b",
+        "should_succeed": false,
+        "tamper_description": "Correct ciphertext but wrong master key"
+      },
+      {
+        "id": "auth-truncated",
+        "description": "Ciphertext truncated (last byte removed)",
+        "master_key_hex": "35d671f30eef4865125fc5c6c02e091271d0120852a4ccfa89532c757f4f5484",
+        "ciphertext_hex": "44454e43010820000018ab5d49f259ba5a45a85ff023ed1664c24b34b55e64aabd4ff1b048fe6f435471fee4dae4acb03b16c1ccc1e3984c30e541703434365ee9f653fe33370b284e9a5db26b038268f91266088b09ad474ecce7be4d2396599111c8",
+        "should_succeed": false,
+        "tamper_description": "Last byte of tag removed"
+      }
+    ]
+  }
+}
